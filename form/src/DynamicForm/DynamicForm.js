@@ -18,12 +18,11 @@ const DynamicForm = () => {
     const [valid_, setvalid_] = useState({});
 
     const submitHandler = (data) => {
-        console.log(input)
+        console.log(data)
         alert('SUBMITTED, check console');
 
     }
     const changeHandler = (event, pattern) => {
-        console.log(errors)
         let valid = true;
         if (pattern && pattern.value) {
             var re = new RegExp(pattern.value);

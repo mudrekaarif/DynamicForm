@@ -2,20 +2,20 @@ export const Personal = [
     {
         placeholder: 'First Name',
         name: 'firstName',
-        validation: { pattern: { value: /[A-Za-z]{1,}/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
+        validation: { pattern: { value: /^[A-Za-z]{1,}$/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
         input_type: 'text'
 
     },
     {
         placeholder: 'Middle Name(Optional)',
         name: 'middleName',
-        validation: { pattern: { value: /[A-Za-z]{1,}/, message: 'Enter Valid name' } },
+        validation: { pattern: { value: /^[A-Za-z]{1,}$/, message: 'Enter Valid name' } },
         input_type: 'text'
     },
     {
         placeholder: 'Last Name',
         name: 'lastName',
-        validation: { pattern: { value: /[A-Za-z]{1,}/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
+        validation: { pattern: { value: /^[A-Za-z]{1,}$/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
         input_type: 'text'
     },
     {
@@ -24,7 +24,7 @@ export const Personal = [
         input_type: 'phoneNumber',
         validation: {
             pattern: {
-                value: /[0-9]{10}/,
+                value: /^[0-9]{10}$/,
                 message: 'enter valid phone number'
             },
             required: { value: true, message: 'Its required' }
@@ -36,7 +36,7 @@ export const Personal = [
         input_type: 'text',
         validation: {
             pattern: {
-                value: /[a-zA-Z0-9]{1,}@{1}[a-zA-Z0-9]{1,}\.[a-zA-Z0-9]{1,}/,
+                value: /^[a-zA-Z0-9]{1,}@{1}[a-zA-Z0-9]{1,}\.[a-zA-Z0-9]{1,}[.]{0,}[a-zA-Z0-9]{0,}$/,
                 message: 'enter valid email'
             },
             required: { value: true, message: 'Its required' }
@@ -45,7 +45,8 @@ export const Personal = [
     {
         placeholder: 'Mailing Adress',
         dependent: [
-            'phoneNumber'
+            'phoneNumber',
+            'email'
         ],
         name: 'adress',
         input_type: 'text',
@@ -80,7 +81,7 @@ export const Personal = [
         input_type: 'number',
         validation: {
             min: 0,
-            max: 12,
+            max: { value: 11, message: 'Months should be less than 12' },
             required: { value: true, message: 'Its required' }
         },
     }
@@ -90,20 +91,20 @@ export const Business = [
     {
         placeholder: 'First Name',
         name: 'firstName',
-        validation: { pattern: { value: /[A-Za-z]{1,}/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
+        validation: { pattern: { value: /^[A-Za-z]{1,}$/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
         input_type: 'text'
 
     },
     {
         placeholder: 'Middle Name(Optional)',
         name: 'middleName',
-        validation: { pattern: { value: /[A-Za-z]{1,}/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
+        validation: { pattern: { value: /^[A-Za-z]{1,}$/, message: 'Enter Valid name' } },
         input_type: 'text'
     },
     {
         placeholder: 'Last Name',
         name: 'lastName',
-        validation: { pattern: { value: /[A-Za-z]{1,}/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
+        validation: { pattern: { value: /^[A-Za-z]{1,}$/, message: 'Enter Valid name' }, required: { value: true, message: 'Its required' } },
         input_type: 'text'
     },
     {
@@ -112,7 +113,7 @@ export const Business = [
         input_type: 'phoneNumber',
         validation: {
             pattern: {
-                value: /[0-9]{10}/,
+                value: /^[0-9]{10}$/,
                 message: 'enter valid phone number'
             },
             required: { value: true, message: 'Its required' }
@@ -124,7 +125,7 @@ export const Business = [
         input_type: 'text',
         validation: {
             pattern: {
-                value: /[a-zA-Z0-9]{1,}@{1}[a-zA-Z0-9]{1,}\.[a-zA-Z0-9]{1,}/,
+                value: /^[a-zA-Z0-9]{1,}@{1}[a-zA-Z0-9]{1,}\.[a-zA-Z0-9]{1,}[.]{0,}[a-zA-Z0-9]{0,}$/,
                 message: 'enter valid email'
             },
             required: { value: true, message: 'Its required' }
@@ -146,7 +147,7 @@ export const Business = [
     },
     {
         placeholder: 'Business Adress',
-        name: 'adress',
+        name: 'businessAdress',
         input_type: 'text',
         validation: { required: { value: true, message: 'Its required' } }
 
