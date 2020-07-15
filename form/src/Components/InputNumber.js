@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputNumber = ({ reference, name, required, placeholder, changeHandler, validation, errors }) => {
+const InputNumber = ({ reference, name, required, placeholder, changeHandler, errors }) => {
     return (
         <div>
             <input

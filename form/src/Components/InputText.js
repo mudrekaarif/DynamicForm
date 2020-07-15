@@ -1,13 +1,12 @@
 import React from 'react';
 
-const InputText = ({ reference, name, required, placeholder, changeHandler, validation, errors }) => {
+const InputText = ({ reference, name, placeholder, changeHandler, errors }) => {
     return (
         <div>
             <input
                 className='but'
                 type='text'
                 name={name}
-                required={required}
                 autoComplete='off'
                 placeholder={placeholder}
                 onChange={changeHandler}

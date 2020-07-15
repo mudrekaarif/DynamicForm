@@ -8,7 +8,7 @@ const map = {
     text: InputText,
     number: InputNumber,
     select: DropDownSelect,
-    display_text: DisplayText,
+    display: DisplayText,
     phoneNumber: InputPhoneNumber
 }
 

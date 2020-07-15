@@ -7,7 +7,6 @@ const InputPhoneNumber = ({ reference, name, placeholder, changeHandler, errors 
                 className='but'
                 type='text'
                 name={name}
-                // pattern='[0-9]{10}'
                 autoComplete='off'
                 placeholder={placeholder}
                 onChange={changeHandler}

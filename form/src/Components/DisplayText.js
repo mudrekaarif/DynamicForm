@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayText = ({ placeholder, reference }) => {
+const DisplayText = ({ placeholder }) => {
     return (
         <label>{placeholder}</label>
     );

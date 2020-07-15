@@ -6,16 +6,17 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from "react-redux";
 
 const DynamicForm = () => {
+    // redux components
     const feilds = useSelector(state => state.feilds);
     const input = useSelector(state => state.input);
     const dispatch = useDispatch();
     const InputChangeHandler = (input) => dispatch(SetInputFeilds(input))
 
-
     const { register, handleSubmit, errors } = useForm();
 
+    //state
     const [inp, setinp] = useState({});
-    const [valid_, setvalid_] = useState({});
+    const [validFields, setValidFields] = useState({});
 
     const submitHandler = (data) => {
         console.log(data)
@@ -25,8 +26,7 @@ const DynamicForm = () => {
     const changeHandler = (event, pattern) => {
         let valid = true;
         if (pattern && pattern.value) {
-            var re = new RegExp(pattern.value);
-            let result = event.currentTarget.value.match(re);
+            let result = event.currentTarget.value.match(pattern.value);
             if (!result) valid = false;
             else if (result[0] === event.currentTarget.value) {
                 valid = true;
@@ -34,31 +34,26 @@ const DynamicForm = () => {
             else valid = false;
         }
         setinp({ ...inp, [event.currentTarget.name]: event.currentTarget.value }, InputChangeHandler(inp))
-        setvalid_({ ...valid_, [event.currentTarget.name]: valid })
+        setValidFields({ ...validFields, [event.currentTarget.name]: valid })
     }
     return (
         <div>
             <form onSubmit={handleSubmit(submitHandler)} >
                 {
-                    feilds.map(form => {
-                        if (typeof fmap[form.input_type] !== "undefined") {
+                    feilds.map(feild => {
+                        if (typeof fmap[feild.component] !== "undefined") {
                             let show = true;
-                            if (form.dependent) {
-                                for (let i = 0; i < form.dependent.length; i++) {
-                                    if (valid_[form.dependent[i]] === undefined || valid_[form.dependent[i]] === false) show = false;
+                            if (feild.dependent) {
+                                for (let i = 0; i < feild.dependent.length; i++) {
+                                    if (validFields[feild.dependent[i]] === undefined || validFields[feild.dependent[i]] === false) show = false;
                                 }
                             }
                             if (!show) return null;
-                            // if (form.validation && form.validation['pattern']) {
-                            //     form.validation['pattern'] = new RegExp(form.validation['pattern']);
-                            // }
-                            // console.log(form.validation);
-                            return React.createElement(fmap[form.input_type], {
-                                ...form,
-                                reference: register({ ...form.validation }),
-                                // reference: register({ required: true, minLength: 2 }),
-                                key: form.name,
-                                changeHandler: (e) => changeHandler(e, form.validation.pattern),
+                            return React.createElement(fmap[feild.component], {
+                                ...feild,
+                                reference: register({ ...feild.validation }),
+                                key: feild.name,
+                                changeHandler: (e) => changeHandler(e, feild.validation.pattern),
                                 errors: errors
                             });
                         }
