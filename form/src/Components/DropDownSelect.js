@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DropDownSelect = ({ reference, name, required, values, placeholder, changeHandler }) => {
+const DropDownSelect = ({ reference, name, required, values, placeholder, changeHandler, errors }) => {
     return (
         <div>
             <label>{placeholder}</label>
@@ -9,6 +9,7 @@ const DropDownSelect = ({ reference, name, required, values, placeholder, change
                 <option value="">Select an option</option>
                 {values.map(values => <option value={values} key={values}>{values}</option>)}
             </select>
+            {errors[name] === undefined ? null : <p style={{ color: 'red' }}>{errors[name].message}</p>}
         </div>
     );
 }

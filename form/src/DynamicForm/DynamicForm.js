@@ -23,9 +23,10 @@ const DynamicForm = () => {
 
     }
     const changeHandler = (event, pattern) => {
+        console.log(errors)
         let valid = true;
-        if (pattern) {
-            var re = new RegExp(pattern);
+        if (pattern && pattern.value) {
+            var re = new RegExp(pattern.value);
             let result = event.currentTarget.value.match(re);
             if (!result) valid = false;
             else if (result[0] === event.currentTarget.value) {
@@ -49,9 +50,14 @@ const DynamicForm = () => {
                                 }
                             }
                             if (!show) return null;
+                            // if (form.validation && form.validation['pattern']) {
+                            //     form.validation['pattern'] = new RegExp(form.validation['pattern']);
+                            // }
+                            // console.log(form.validation);
                             return React.createElement(fmap[form.input_type], {
                                 ...form,
-                                reference: register(form.validation),
+                                reference: register({ ...form.validation }),
+                                // reference: register({ required: true, minLength: 2 }),
                                 key: form.name,
                                 changeHandler: (e) => changeHandler(e, form.validation.pattern),
                                 errors: errors

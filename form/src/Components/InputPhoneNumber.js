@@ -1,18 +1,19 @@
 import React from 'react';
 
-const InputPhoneNumber = ({ reference, name, placeholder, changeHandler }) => {
+const InputPhoneNumber = ({ reference, name, placeholder, changeHandler, errors }) => {
     return (
         <div>
             <input
                 className='but'
                 type='text'
                 name={name}
-                pattern='[0-9]{10}'
+                // pattern='[0-9]{10}'
                 autoComplete='off'
                 placeholder={placeholder}
                 onChange={changeHandler}
                 ref={reference}
             />
+            {errors[name] === undefined ? null : <p style={{ color: 'red' }}>{errors[name].message}</p>}
         </div>
     );
 }
