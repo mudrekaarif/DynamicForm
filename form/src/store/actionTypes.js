@@ -1,0 +1,2 @@
+export const SET_FORM_TYPE = 'SET_FORM_TYPE';
+export const SET_INPUT_FEILDS = 'SET_INPUT_FEILDS';
