@@ -1,14 +1,13 @@
 import React from 'react';
 
-const InputText = ({ reference, name, required, placeholder, changeHandler, validation }) => {
+const InputPhoneNumber = ({ reference, name, placeholder, changeHandler }) => {
     return (
         <div>
             <input
                 className='but'
                 type='text'
                 name={name}
-                pattern={validation.pattern}
-                required={required}
+                pattern='[0-9]{10}'
                 autoComplete='off'
                 placeholder={placeholder}
                 onChange={changeHandler}
@@ -17,5 +16,4 @@ const InputText = ({ reference, name, required, placeholder, changeHandler, vali
         </div>
     );
 }
-
-export default InputText;
+export default InputPhoneNumber;

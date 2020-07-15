@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputNumber = ({ name, required, placeholder, changeHandler, validation }) => {
+const InputNumber = ({ reference, name, required, placeholder, changeHandler, validation }) => {
     return (
         <div>
             <input
@@ -13,9 +13,9 @@ const InputNumber = ({ name, required, placeholder, changeHandler, validation })
                 autoComplete='off'
                 placeholder={placeholder}
                 onChange={changeHandler}
+                ref={reference}
             />
         </div>
     );
 }
-
 export default InputNumber;

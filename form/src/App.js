@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ChangeFormType } from './store/actions';
-import DynamicForm from './Components/DynamicForm';
+import DynamicForm from './DynamicForm/DynamicForm';
 import './App.css';
 
 class App extends Component {

@@ -2,47 +2,39 @@ export const Personal = [
     {
         placeholder: 'First Name',
         name: 'firstName',
-        validation: "[A-Za-z]{1,}",
-        input_type: 'text',
-        required: true,
+        validation: { pattern: "[A-Za-z]{1,}", required: true },
+        input_type: 'text'
 
     },
     {
         placeholder: 'Middle Name(Optional)',
         name: 'middleName',
-        validation: "[A-Za-z]{0,}",
-        input_type: 'text',
-        required: false,
-
+        validation: { pattern: "[A-Za-z]{1,}", required: false },
+        input_type: 'text'
     },
     {
         placeholder: 'Last Name',
         name: 'lastName',
-        validation: "[A-Za-z]{1,}",
-        input_type: 'text',
-        required: true,
-
+        validation: { pattern: "[A-Za-z]{1,}", required: true },
+        input_type: 'text'
     },
     {
         placeholder: 'PhoneNumber',
         name: 'phoneNumber',
-        input_type: 'text',
-        validation: '[0-9]{10}',
-        required: true,
+        input_type: 'phoneNumber',
+        validation: { required: true }
     },
     {
         placeholder: 'E-mail',
         name: 'email',
         input_type: 'text',
-        required: true,
-
+        validation: { required: true }
     },
     {
         placeholder: 'Mailing Adress',
         name: 'adress',
         input_type: 'text',
-        required: true,
-
+        validation: { required: true }
     },
     {
         placeholder: 'Is the residence adress same as mailing adress?',
@@ -52,7 +44,7 @@ export const Personal = [
             'yes',
             'no'
         ],
-        required: true,
+        validation: { required: true }
 
     },
     {
@@ -64,10 +56,7 @@ export const Personal = [
         placeholder: 'Years',
         name: 'yearsLived',
         input_type: 'number',
-        validation: {
-            min: 0
-        },
-        required: true,
+        validation: { required: true, min: 0 }
 
     },
     {
@@ -76,9 +65,9 @@ export const Personal = [
         input_type: 'number',
         validation: {
             min: 0,
-            max: 12
+            max: 12,
+            required: true,
         },
-        required: true,
     }
 ]
 
@@ -86,68 +75,60 @@ export const Business = [
     {
         placeholder: 'First Name',
         name: 'firstName',
-        validation: "[A-Za-z]{1,}",
-        input_type: 'text',
-        required: true,
+        validation: { pattern: "[A-Za-z]{1,}", required: true },
+        input_type: 'text'
 
     },
     {
         placeholder: 'Middle Name(Optional)',
         name: 'middleName',
-        validation: "[A-Za-z]{0,}",
-        input_type: 'text',
-        required: false,
-
+        validation: { pattern: "[A-Za-z]{1,}", required: false },
+        input_type: 'text'
     },
     {
         placeholder: 'Last Name',
         name: 'lastName',
-        validation: "[A-Za-z]{1,}",
-        input_type: 'text',
-        required: true,
-
+        validation: { pattern: "[A-Za-z]{1,}", required: true },
+        input_type: 'text'
     },
     {
         placeholder: 'PhoneNumber',
         name: 'phoneNumber',
-        input_type: 'text',
-        validation: '[0-9]{10}',
-        required: true,
+        input_type: 'phoneNumber',
+        validation: { required: true }
     },
     {
         placeholder: 'E-mail',
         name: 'email',
         input_type: 'text',
-        required: true,
-
+        validation: { required: true }
     },
     {
         placeholder: 'Reletionship to Business',
         name: 'relationBusiness',
         input_type: 'text',
-        required: true,
+        validation: { required: true }
 
     },
     {
         placeholder: 'Business Name',
         name: 'businessName',
         input_type: 'text',
-        required: true,
+        validation: { required: true }
 
     },
     {
         placeholder: 'Business Adress',
         name: 'adress',
         input_type: 'text',
-        required: true,
+        validation: { required: true }
 
     },
     {
         placeholder: 'Industry',
         name: 'industry',
         input_type: 'text',
-        required: true,
-
+        validation: { required: true }
     }
 
 ]
