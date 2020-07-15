@@ -19,10 +19,10 @@ export const Personal = [
         input_type: 'text'
     },
     {
-        placeholder: 'PhoneNumber',
+        placeholder: 'Phone Number',
         name: 'phoneNumber',
         input_type: 'phoneNumber',
-        validation: { required: true }
+        validation: { pattern: "[0-9]{10}", required: true }
     },
     {
         placeholder: 'E-mail',
@@ -32,6 +32,9 @@ export const Personal = [
     },
     {
         placeholder: 'Mailing Adress',
+        dependent: [
+            'phoneNumber'
+        ],
         name: 'adress',
         input_type: 'text',
         validation: { required: true }
@@ -95,7 +98,7 @@ export const Business = [
         placeholder: 'PhoneNumber',
         name: 'phoneNumber',
         input_type: 'phoneNumber',
-        validation: { required: true }
+        validation: { pattern: "[0-9]{0,10}", required: true }
     },
     {
         placeholder: 'E-mail',
